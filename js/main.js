@@ -47,4 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
       toTop.classList.toggle('show', window.scrollY > 500);
     }, { passive: true });
   }
+
+  // --- Scroll reveal (控えめ・reduced-motionでは無効) ---
+  var reveals = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reveals.length && 'IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('is-in'); });
+  }
 });
