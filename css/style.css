@@ -290,6 +290,9 @@ a{color:inherit;text-decoration:none}
 }
 .omiyage-card h3{font-size:1.22rem;font-weight:700;color:var(--ink);margin-bottom:.7rem;line-height:1.7;letter-spacing:.03em}
 .omiyage-card p{color:var(--gray);font-size:.94rem}
+.omiyage-card p strong{color:var(--navy);font-weight:700}
+.omiyage-link{display:inline-block;margin-top:1.1rem;color:var(--blue-deep);font-weight:700;font-size:.92rem;border-bottom:1px solid currentColor}
+.omiyage-link:hover{color:var(--navy)}
 
 /* ===== Voices ===== */
 .voices-grid{
